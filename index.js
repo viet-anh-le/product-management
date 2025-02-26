@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const methodOverride = require("method-override")
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser")
@@ -37,6 +38,10 @@ app.use(session({
 app.use(flash());
 
 //End Flash
+
+// TinyMCE
+app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
+// End TinyMCE
 
 //App Local Variables: Tao bien toan cuc de dung o moi file pug
 app.locals.prefixAdmin = systemConfig.prefixAdmin;

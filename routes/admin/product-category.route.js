@@ -20,4 +20,12 @@ router.post('/create',
   controller.createPost
 );
 
+router.post('/upload-image',
+  upload.single("thumbnail"),
+  uploadCloud.upload,
+  (req, res) => {
+    res.json({ location: req.body.thumbnail }); // Trả về URL ảnh cho TinyMCE
+  }
+);
+
 module.exports = router

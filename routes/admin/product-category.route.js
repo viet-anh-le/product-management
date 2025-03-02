@@ -28,4 +28,13 @@ router.post('/upload-image',
   }
 );
 
+router.get('/edit/:id', controller.edit);
+
+router.patch(
+  '/edit/:id', 
+  controller.editPatch,
+  validate.createPost,
+  controller.editPatch
+);
+
 module.exports = router
